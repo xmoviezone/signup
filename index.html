@@ -3,108 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WATCH VIDEY</title>
+    <title>WATCH VIDEY CO</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             text-align: center;
-            padding: 20px;
-        }
-        .description {
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-        .banner {
-            width: 100%;
-            max-width: 630px;
-            height: auto;
-            cursor: pointer;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            font-size: 18px;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .btn:hover {
-            background: #0056b3;
+            font-family: Arial, sans-serif;
+            padding: 50px;
         }
         .spinner {
             display: none;
-            margin: 20px auto;
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-top: 4px solid #007bff;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             animation: spin 1s linear infinite;
+            margin: 20px auto;
         }
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        .hidden { display: none; }
+        .button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
-    <p class="description">Click the banner below to continue</p>
+    <h2>Welcome to Our Page</h2>
+    <p>Click the banner or button below</p>
 
-    <img src="https://i.imgur.com/cqDC2KU.png" alt="Ad Banner" class="banner" id="adBanner">
+    <!-- Banner -->
+    <img src="https://i.imgur.com/EovdE8H.jpeg" alt="Ad Banner" style="cursor: pointer;" id="adBanner">
 
+    <!-- Spinner -->
     <div class="spinner" id="spinner"></div>
 
-    <br>
+    <!-- Button -->
+    <button class="button" id="goButton">Go to Video</button>
 
-    <a href="https://cdnvidey.github.io/kRDQVc4D1/" class="btn" id="videoBtn">Watch Video</a>
-
-    <!-- Histats (Tracking) -->
+    <!-- Histats Tracking -->
     <script type="text/javascript">
         var _Hasync = _Hasync || [];
-        _Hasync.push(['Histats.start', '1,4922497,4,0,0,0,00000000']);
+        _Hasync.push(['Histats.start', '1,4922497,4,0,0,0,00010000']);
         _Hasync.push(['Histats.fasi', '1']);
         _Hasync.push(['Histats.track_hits', '']);
         (function() {
             var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-            hs.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://s10.histats.com/js15_as.js';
+            hs.src = '//s10.histats.com/js15_as.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
         })();
     </script>
-    <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?4922497&101" alt="Hit counter" border="0"></a></noscript>
+    <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?4922497&101" alt="counter" border="0"></a></noscript>
 
     <script>
-        // Encode Adsterra URL in Base64
-        const encodedAdsterraURL = "aHR0cHM6Ly9saXN0ZW5lcmhvb3Rlci5jb20vc25wN2E1MnJxP2tleT1iMDkxNTgwZTkwOGMyYThiN2ZkMDkzZjIzYzQ3MDUwMg=="; // Ganti dengan Base64 Adsterra
+        // Anti Inspect Element
+        document.addEventListener("contextmenu", (e) => e.preventDefault());
+        document.addEventListener("keydown", function(event) {
+            if (event.ctrlKey && ["u", "U", "c", "C", "s", "S", "i", "I", "j", "J"].includes(event.key)) {
+                event.preventDefault();
+            }
+            if (event.keyCode === 123) {
+                event.preventDefault();
+            }
+        });
 
+        // Adsterra Base64 URL
+        let adsterraURL = atob("aHR0cHM6Ly9saXN0ZW5lcmhvb3Rlci5jb20vc25wN2E1MnJxP2tleT1iMDkxNTgwZTkwOGMyYThiN2ZkMDkzZjIzYzQ3MDUwMg==");
+
+        // Handle Click on Banner
         document.getElementById("adBanner").addEventListener("click", function() {
             document.getElementById("spinner").style.display = "block";
             setTimeout(() => {
-                window.location.href = atob(encodedAdsterraURL);
-            }, 2000); // Redirect setelah 2 detik
+                window.location.href = adsterraURL;
+            }, 10000);
         });
 
-        document.getElementById("videoBtn").addEventListener("click", function() {
-            document.getElementById("spinner").style.display = "block";
-        });
-
-        // Anti CTRL+U, CTRL+Shift+I, dan Klik Kanan
-        document.addEventListener("keydown", function (event) {
-            if (event.ctrlKey && (event.key === 'u' || event.key === 'U' || event.key === 'i' || event.key === 'I' || event.key === 'j' || event.key === 'J' || event.key === 's' || event.key === 'S' || event.key === 'c' || event.key === 'C')) {
-                event.preventDefault();
-                alert("Inspect Element is disabled!");
-            }
-            if (event.key === "F12") {
-                event.preventDefault();
-                alert("Developer tools are disabled!");
-            }
-        });
-
-        document.addEventListener("contextmenu", function (event) {
-            event.preventDefault();
-            alert("Right click is disabled!");
+        // Handle Click on Button
+        document.getElementById("goButton").addEventListener("click", function() {
+            window.location.href = "https://cdn.videy.co";
         });
     </script>
 
