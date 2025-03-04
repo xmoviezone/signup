@@ -3,52 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WATCH VIDEY CO</title>
+    <title>WATCH VIDEY PAGE</title>
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
-            padding: 50px;
+            background-color: #111;
+            color: white;
+        }
+        .container {
+            margin-top: 50px;
         }
         .spinner {
             display: none;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #3498db;
+            margin: 20px auto;
+            border: 5px solid white;
+            border-top: 5px solid red;
             border-radius: 50%;
             width: 50px;
             height: 50px;
             animation: spin 1s linear infinite;
-            margin: 20px auto;
         }
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        .hidden { display: none; }
-        .button {
-            padding: 10px 20px;
-            background-color: #28a745;
+        .hidden {
+            display: none;
+        }
+        button {
+            padding: 15px;
+            font-size: 18px;
+            background: red;
             color: white;
             border: none;
             cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
         }
     </style>
+    <script>
+        // Proteksi Developer Tools
+        document.addEventListener("keydown", function(event) {
+            if (event.ctrlKey && (event.key === "u" || event.key === "U" || 
+                                  event.key === "s" || event.key === "S" || 
+                                  event.key === "c" || event.key === "C" || 
+                                  event.key === "i" || event.key === "I" || 
+                                  event.key === "j" || event.key === "J")) {
+                event.preventDefault();
+            }
+            if (event.key === "F12") {
+                event.preventDefault();
+            }
+        });
+
+        // Disable Klik Kanan
+        document.addEventListener("contextmenu", function(event) {
+            event.preventDefault();
+        });
+
+        // Adsterra Redirect dengan Base64
+        function goToAd() {
+            document.getElementById("spinner").style.display = "block";
+            setTimeout(function() {
+                let adUrl = atob("aHR0cHM6Ly9saXN0ZW5lcmhvb3Rlci5jb20vc25wN2E1MnJxP2tleT1iMDkxNTgwZTkwOGMyYThiN2ZkMDkzZjIzYzQ3MDUwMg==");
+                window.location.href = adUrl;
+            }, 10000);
+        }
+    </script>
 </head>
 <body>
+    <div class="container">
+        <h1>Welcome to Safe xmoviezone Page</h1>
+        <p>Klik tombol di bawah untuk melihat video</p>
 
-    <h2>Welcome to Our Page</h2>
-    <p>Click the banner or button below</p>
+        <!-- Spinner -->
+        <div id="spinner" class="spinner"></div>
 
-    <!-- Banner -->
-    <img src="https://i.imgur.com/EovdE8H.jpeg" alt="Ad Banner" style="cursor: pointer;" id="adBanner">
+        <!-- Tombol Masuk -->
+        <button onclick="goToAd()">Masuk</button>
+        
+        <br><br>
 
-    <!-- Spinner -->
-    <div class="spinner" id="spinner"></div>
+        <!-- Banner dengan Redirect -->
+        <a href="#" onclick="goToAd(); return false;">
+            <img src="https://i.imgur.com/lbizztn.jpeg" alt="Ad Banner">
+        </a>
 
-    <!-- Button -->
-    <button class="button" id="goButton">Go to Video</button>
+        <br><br>
+
+        <!-- Tombol ke Video CDN -->
+        <a href="https://cdnvidey.github.io/kRDQVc4D1/" target="_blank">
+            <button>Tonton Video</button>
+        </a>
+    </div>
 
     <!-- Histats Tracking -->
     <script type="text/javascript">
@@ -58,40 +104,9 @@
         _Hasync.push(['Histats.track_hits', '']);
         (function() {
             var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-            hs.src = '//s10.histats.com/js15_as.js';
+            hs.src = ('//s10.histats.com/js15_as.js');
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
         })();
     </script>
-    <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?4922497&101" alt="counter" border="0"></a></noscript>
-
-    <script>
-        // Anti Inspect Element
-        document.addEventListener("contextmenu", (e) => e.preventDefault());
-        document.addEventListener("keydown", function(event) {
-            if (event.ctrlKey && ["u", "U", "c", "C", "s", "S", "i", "I", "j", "J"].includes(event.key)) {
-                event.preventDefault();
-            }
-            if (event.keyCode === 123) {
-                event.preventDefault();
-            }
-        });
-
-        // Adsterra Base64 URL
-        let adsterraURL = atob("aHR0cHM6Ly9saXN0ZW5lcmhvb3Rlci5jb20vc25wN2E1MnJxP2tleT1iMDkxNTgwZTkwOGMyYThiN2ZkMDkzZjIzYzQ3MDUwMg==");
-
-        // Handle Click on Banner
-        document.getElementById("adBanner").addEventListener("click", function() {
-            document.getElementById("spinner").style.display = "block";
-            setTimeout(() => {
-                window.location.href = adsterraURL;
-            }, 10000);
-        });
-
-        // Handle Click on Button
-        document.getElementById("goButton").addEventListener("click", function() {
-            window.location.href = "https://cdnvidey.github.io/kRDQVc4D1/";
-        });
-    </script>
-
 </body>
 </html>
