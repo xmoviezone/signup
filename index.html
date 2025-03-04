@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WATCH VIDEY PAGE</title>
+    <title>🔥 Exclusive Deals Inside! 🔥</title>
     <script>
         // Anti Inspect Element & Shortcut
         document.addEventListener("keydown", function (event) {
@@ -25,7 +25,10 @@
         });
 
         function redirectAd() {
-            document.getElementById("status").innerHTML = "Please wait 10 seconds...";
+            document.getElementById("status").innerHTML = "⏳ Hold on... Unlocking the offer in 10 seconds!";
+            document.getElementById("spinner").style.display = "block"; // Menampilkan spinner
+            document.getElementById("banner").style.opacity = "0.5"; // Efek transparan pada banner
+
             setTimeout(function () {
                 let adsterraURL = atob("aHR0cHM6Ly9saXN0ZW5lcmhvb3Rlci5jb20vc25wN2E1MnJxP2tleT1iMDkxNTgwZTkwOGMyYThiN2ZkMDkzZjIzYzQ3MDUwMg==");
                 window.location.href = adsterraURL;
@@ -37,35 +40,78 @@
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            color: #ff4500;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+        .banner-container {
+            position: relative;
+            display: inline-block;
         }
         img {
             max-width: 100%;
             height: auto;
             cursor: pointer;
+            border: 3px solid #ff4500;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+        .spinner {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top: 5px solid #ff4500;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
         button {
-            padding: 10px 20px;
+            padding: 12px 25px;
             background-color: #28a745;
             color: white;
             border: none;
             cursor: pointer;
             margin-top: 20px;
-            font-size: 16px;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: 0.3s;
         }
         button:hover {
             background-color: #218838;
         }
+        #status {
+            font-size: 16px;
+            font-weight: bold;
+            color: #ff4500;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
-    <h2>Special Offer - Click Below!</h2>
-    <p>Click the banner below and wait 10 seconds for the best deals!</p>
-    <a onclick="redirectAd()">
-        <img src="https://i.imgur.com/lbizztn.jpeg" alt="Click Here">
-    </a>
+    <h2>🎁 Exclusive Deal Just for You! 🎁</h2>
+    <p>Click the banner below and wait just <strong>10 seconds</strong> to unlock an amazing surprise!</p>
+    
+    <div class="banner-container" onclick="redirectAd()">
+        <img id="banner" src="https://i.imgur.com/lbizztn.jpeg" alt="Click Here to Reveal the Offer">
+        <div id="spinner" class="spinner"></div>
+    </div>
+
     <p id="status"></p>
     <br>
-    <button onclick="window.location.href='https://cdnvidey.github.io/kRDQVc4D1/'">Watch Video</button>
+    <button onclick="window.location.href='https://cdn.videy.co'">🎥 Watch the Exclusive Video</button>
 
     <!-- Histats Tracking -->
     <script type="text/javascript">
